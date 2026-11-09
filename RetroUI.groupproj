@@ -12,6 +12,12 @@
         <Projects Include="RetroUID13\RetroUID13.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="RetroUID13Fixed\RetroUID13Fixed.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="RetroUID13Modern\RetroUID13Modern.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +53,32 @@
     <Target Name="RetroUID13:Make">
         <MSBuild Projects="RetroUID13\RetroUID13.dproj" Targets="Make"/>
     </Target>
+    <Target Name="RetroUID13Fixed">
+        <MSBuild Projects="RetroUID13Fixed\RetroUID13Fixed.dproj"/>
+    </Target>
+    <Target Name="RetroUID13Fixed:Clean">
+        <MSBuild Projects="RetroUID13Fixed\RetroUID13Fixed.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RetroUID13Fixed:Make">
+        <MSBuild Projects="RetroUID13Fixed\RetroUID13Fixed.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RetroUID13Modern">
+        <MSBuild Projects="RetroUID13Modern\RetroUID13Modern.dproj"/>
+    </Target>
+    <Target Name="RetroUID13Modern:Clean">
+        <MSBuild Projects="RetroUID13Modern\RetroUID13Modern.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RetroUID13Modern:Make">
+        <MSBuild Projects="RetroUID13Modern\RetroUID13Modern.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="RetroUIProject;RetroUIFull;RetroUID13"/>
+        <CallTarget Targets="RetroUIProject;RetroUIFull;RetroUID13;RetroUID13Fixed;RetroUID13Modern"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RetroUIProject:Clean;RetroUIFull:Clean;RetroUID13:Clean"/>
+        <CallTarget Targets="RetroUIProject:Clean;RetroUIFull:Clean;RetroUID13:Clean;RetroUID13Fixed:Clean;RetroUID13Modern:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RetroUIProject:Make;RetroUIFull:Make;RetroUID13:Make"/>
+        <CallTarget Targets="RetroUIProject:Make;RetroUIFull:Make;RetroUID13:Make;RetroUID13Fixed:Make;RetroUID13Modern:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
