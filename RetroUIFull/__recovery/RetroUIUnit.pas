@@ -107,7 +107,7 @@ begin
   try
     FAllLogs.SaveToFile(GetLogFilePath, TEncoding.UTF8);
   except
-    // ignore errors in demo
+    // ignore file write errors in demo
   end;
 end;
 
