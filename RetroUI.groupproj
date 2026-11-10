@@ -18,6 +18,9 @@
         <Projects Include="RetroUID13Modern\RetroUID13Modern.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="RetroUID13Win10\RetroUID13Win10.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="RetroUID13Modern:Make">
         <MSBuild Projects="RetroUID13Modern\RetroUID13Modern.dproj" Targets="Make"/>
     </Target>
+    <Target Name="RetroUID13Win10">
+        <MSBuild Projects="RetroUID13Win10\RetroUID13Win10.dproj"/>
+    </Target>
+    <Target Name="RetroUID13Win10:Clean">
+        <MSBuild Projects="RetroUID13Win10\RetroUID13Win10.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RetroUID13Win10:Make">
+        <MSBuild Projects="RetroUID13Win10\RetroUID13Win10.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="RetroUIProject;RetroUIFull;RetroUID13;RetroUID13Fixed;RetroUID13Modern"/>
+        <CallTarget Targets="RetroUIProject;RetroUIFull;RetroUID13;RetroUID13Fixed;RetroUID13Modern;RetroUID13Win10"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RetroUIProject:Clean;RetroUIFull:Clean;RetroUID13:Clean;RetroUID13Fixed:Clean;RetroUID13Modern:Clean"/>
+        <CallTarget Targets="RetroUIProject:Clean;RetroUIFull:Clean;RetroUID13:Clean;RetroUID13Fixed:Clean;RetroUID13Modern:Clean;RetroUID13Win10:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RetroUIProject:Make;RetroUIFull:Make;RetroUID13:Make;RetroUID13Fixed:Make;RetroUID13Modern:Make"/>
+        <CallTarget Targets="RetroUIProject:Make;RetroUIFull:Make;RetroUID13:Make;RetroUID13Fixed:Make;RetroUID13Modern:Make;RetroUID13Win10:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
